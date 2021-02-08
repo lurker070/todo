@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+
+        </title>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+        <link rel="stylesheet" href="dist/css/styles.css">
+        <link rel="stylesheet" href="dist/css/reset.css ">
+    </head>
+    <body>
+        <div class="favorite_wrapper">
+            <a href="http://google.com" class="google">
+                <i class="fab fa-google"></i>
+            </a>
+            <a href="http://facebook.com" class="facebook">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="http://instagram.com" class="instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+        <div class="main_wrapper">
+            <div class="js-clock">
+                <h1>00:00</h1>
+            </div>
+            <div class="today_info_wrapper">
+                <div class="js-weather"></div>
+                <div class="js-date"><h1></h1></div>
+            </div>
+            <h4 class="js-greetings greetings"></h4>
+            <form class="js-form form">
+                <input type="text" placeholder="이름을 적어주세요" />
+            </form>
+            <form class="js-toDoForm">
+                <input type="text" placeholder="오늘 무엇을 하실 건가요?"/>
+            </form>
+            <span class="notToDoToday">할일이 없는 하루네요!</span>
+            <span class="toDoToday"></span>
+            <ul class="js-toDoList">
+
+            </ul>
+        </div>  
+
+        <script src="greeting.js"></script>
+        <script src="clock.js"></script>
+        <script src="todo.js"></script>
+        <script src="background.js"></script>
+        <script src="weather.js"></script>
+    </body>
+</html>
