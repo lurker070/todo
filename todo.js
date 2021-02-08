@@ -3,12 +3,27 @@ const toDoForm = document.querySelector(".js-toDoForm"),
     toDoList = document.querySelector(".js-toDoList"),
     notToDoToday = document.querySelector(".notToDoToday"),
     toDoToday = document.querySelector(".toDoToday");
+    // toDoModal = document.querySelector(".modal_setTime"),
+    // modalInput = toDoModal.querySelector(".model_input--time");
 
 const TODOS_LS = 'toDos';
 
-const SHOWING = "print";
+const SHOWING_TD = "print";
+
+const SHOWING_MD = "print";
 
 let toDos = [];
+
+function paintToDoToday(){
+    toDoToday.classList.remove(SHOWING_TD);
+    notToDoToday.classList.add(SHOWING_TD);
+}
+
+function removeToDoToday(){
+    notToDoToday.classList.remove(SHOWING_TD);
+    toDoToday.classList.add(SHOWING_TD);
+    toDoToday.innerText = "오늘의 할 일이에요"
+}
 
 function deleteToDo(event){
     const btn = event.target;
@@ -23,19 +38,21 @@ function deleteToDo(event){
 
 function saveToDos(){
     localStorage.setItem(TODOS_LS,JSON.stringify(toDos));
+    const loadedToDos = localStorage.getItem(TODOS_LS);
+    const parsedToDos = JSON.parse(loadedToDos);
+    let lengthToDos = 0;
+    if (loadedToDos === null){
+        lengthToDos = 0;
+    } else {
+        lengthToDos = parsedToDos.length;
+    };
+    if (lengthToDos === 0){
+        paintToDoToday();
+    };
 }
 
 let idNumbers = 1;
 
-function paintToDoToday(){
-    notToDoToday.classList.add(SHOWING);
-}
-
-function removeToDoToday(){
-    notToDoToday.classList.remove(SHOWING);
-    toDoToday.classList.add(SHOWING);
-    toDoToday.innerText = "오늘의 할 일이에요"
-}
 
 function paintToDo(text){
     const li = document.createElement("li");
@@ -68,15 +85,19 @@ function loadToDos(){
         lengthToDos = 0;
     } else {
         lengthToDos = parsedToDos.length;
-    }
-    console.log(lengthToDos);
+    };
     if (lengthToDos !== 0){
         parsedToDos.forEach(function(toDo){
             paintToDo(toDo.text);
         });
     } else{
         paintToDoToday();
-    }
+    };
+}
+
+function setTime(){
+    toDoModal.classList.add(SHOWING_MD);
+    const timeValue = modalInput.value;
 }
 
 function handleSubmit(event){

@@ -139,6 +139,21 @@ body {
                 }
             }
         }
+    }
+    .modal_setTime{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .modal_header{
+            background-color: #FF9292;
+        }
+        .modal_content{
+            background-color: white;
+        }
+        .modal_footer{
+            background-color: white;
+        }     
     }  
 }
 
