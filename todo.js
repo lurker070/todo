@@ -3,8 +3,6 @@ const toDoForm = document.querySelector(".js-toDoForm"),
     toDoList = document.querySelector(".js-toDoList"),
     notToDoToday = document.querySelector(".notToDoToday"),
     toDoToday = document.querySelector(".toDoToday");
-    // toDoModal = document.querySelector(".modal_setTime"),
-    // modalInput = toDoModal.querySelector(".model_input--time");
 
 const TODOS_LS = 'toDos';
 
@@ -54,7 +52,7 @@ function saveToDos(){
 let idNumbers = 1;
 
 
-function paintToDo(text){
+function paintToDo(text,time){
     const li = document.createElement("li");
     const delBtn = document.createElement("button");
     delBtn.classList.add("far");
@@ -95,10 +93,6 @@ function loadToDos(){
     };
 }
 
-function setTime(){
-    toDoModal.classList.add(SHOWING_MD);
-    const timeValue = modalInput.value;
-}
 
 function handleSubmit(event){
     event.preventDefault();
